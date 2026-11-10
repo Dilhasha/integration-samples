@@ -3,7 +3,10 @@
     <kafkaTransport.init>
         <connectionType>kafka</connectionType>
         <name>KafkaConnection</name>
-        <bootstrapServers>localhost:9092</bootstrapServers>
+        <bootstrapServers>{${configs.kafkaBootstrapServers}}</bootstrapServers>
+        <securityProtocol>SASL_SSL</securityProtocol>
+        <saslMechanism>PLAIN</saslMechanism>
+        <saslJaasConfig>{${configs.kafkaSaslJaasConfig}}</saslJaasConfig>
         <keySerializerClass>org.apache.kafka.common.serialization.StringSerializer</keySerializerClass>
         <valueSerializerClass>org.apache.kafka.common.serialization.StringSerializer</valueSerializerClass>
         <acks>all</acks>
